@@ -32,7 +32,7 @@ O programa utiliza fgets() em vez de scanf() para garantir a captura segura de s
 
 Fase 2: Sanitização da Entrada
 
-cif(palindromo[rev - 1] == '\n'){
+if(palindromo[rev - 1] == '\n'){
     palindromo[rev - 1] = '\0';
     rev--;
 }
@@ -41,7 +41,7 @@ Justificativa técnica: A função fgets() preserva o caractere de nova linha (\
 
 Fase 3: Normalização Case-Insensitive
 
-cfor(int i = 0; i < rev; i++){
+for(int i = 0; i < rev; i++){
     palindromo[i] = tolower(palindromo[i]);
 }
 
@@ -49,7 +49,7 @@ Implementação robusta: A conversão para minúsculas garante que palavras como
 
 Fase 4: Algoritmo de Inversão
 
-cfor(int i = 0; i < rev; i++){
+for(int i = 0; i < rev; i++){
     rev_palindromo[i] = palindromo[rev - 1 - i];
 }
 
