@@ -1,5 +1,5 @@
 Verificador de Palíndromos em C 
-
+------------------------------------------------------------------------
 Visão Geral
 
 Este programa implementa um algoritmo para verificação de palíndromos, utilizando manipulação de strings e estruturas de controle fundamentais da linguagem C. Um palíndromo é uma palavra, frase ou sequência que 
@@ -32,26 +32,35 @@ O programa utiliza fgets() em vez de scanf() para garantir a captura segura de s
 
 Fase 2: Sanitização da Entrada
 
-if(palindromo[rev - 1] == '\n'){
+```
+if (palindromo[rev - 1] == '\n'){
+
     palindromo[rev - 1] = '\0';
     rev--;
-}
+}    
+```
 
 Justificativa técnica: A função fgets() preserva o caractere de nova linha (\n) na string capturada. Esta etapa remove esse caractere indesejado e ajusta o contador de comprimento, evitando interferência na análise posterior.
 
 Fase 3: Normalização Case-Insensitive
 
+```
 for(int i = 0; i < rev; i++){
+
     palindromo[i] = tolower(palindromo[i]);
 }
+```
 
 Implementação robusta: A conversão para minúsculas garante que palavras como "Arara", "RADAR" ou "AbA" sejam corretamente identificadas como palíndromos, independentemente da variação tipográfica na entrada.
 
 Fase 4: Algoritmo de Inversão
 
+```
 for(int i = 0; i < rev; i++){
+
     rev_palindromo[i] = palindromo[rev - 1 - i];
 }
+```
 
 Complexidade: O(n) em tempo e espaço
 
